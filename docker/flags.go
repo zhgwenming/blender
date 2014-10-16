@@ -7,6 +7,7 @@ import (
 
 	"github.com/docker/docker/opts"
 	flag "github.com/docker/docker/pkg/mflag"
+	"github.com/docker/docker/reexec"
 )
 
 var (
@@ -15,6 +16,7 @@ var (
 )
 
 func init() {
+	reexec.Register("docker", Main)
 	if dockerCertPath == "" {
 		dockerCertPath = filepath.Join(os.Getenv("HOME"), ".docker")
 	}
