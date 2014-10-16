@@ -13,7 +13,6 @@ import (
 	"github.com/docker/docker/api/client"
 	"github.com/docker/docker/dockerversion"
 	flag "github.com/docker/docker/pkg/mflag"
-	"github.com/docker/docker/reexec"
 	"github.com/docker/docker/utils"
 )
 
@@ -24,10 +23,7 @@ const (
 	defaultCertFile     = "cert.pem"
 )
 
-func main() {
-	if reexec.Init() {
-		return
-	}
+func Main() {
 	flag.Parse()
 	// FIXME: validate daemon flags here
 
